@@ -1,4 +1,4 @@
-package br.com.fusiondms.jornadatrabalho
+package br.com.fusiondms.feature.jornadatrabalho.presentation
 
 import android.graphics.Color
 import android.os.Bundle
@@ -9,7 +9,9 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
 import br.com.fusiondms.core.common.statusBarIconColor
-import br.com.fusiondms.jornadatrabalho.databinding.ActivityJornadaTrabalhoBinding
+import br.com.fusiondms.feature.jornadatrabalho.R
+
+import br.com.fusiondms.feature.jornadatrabalho.databinding.ActivityJornadaTrabalhoBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -28,7 +30,7 @@ class JornadaTrabalhoActivity : AppCompatActivity() {
     }
 
     private fun bindNavigation() {
-        val navHostFragment = supportFragmentManager.findFragmentById(br.com.fusiondms.jornadatrabalho.R.id.nav_host_fragment_jornada_trabalho) as NavHostFragment
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_jornada_trabalho) as NavHostFragment
         navController = navHostFragment.navController
         binding.bottomNavigation.setupWithNavController(navController)
 

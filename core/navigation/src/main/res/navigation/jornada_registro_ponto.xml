@@ -19,13 +19,6 @@
     </fragment>
 
     <fragment
-        android:id="@+id/adicionarColaboradorFragment"
-        android:name="br.com.fusiondms.feature.jornadatrabalho.presentation.AdicionarColaboradorFragment"
-        tools:layout="@layout/fragment_adicionar_colaborador">
-
-    </fragment>
-
-    <fragment
         android:id="@+id/confirmarRegistroPontoFragment"
         android:name="br.com.fusiondms.feature.jornadatrabalho.presentation.ConfirmarRegistroPontoFragment"
         tools:layout="@layout/fragment_confirmar_registro_ponto">

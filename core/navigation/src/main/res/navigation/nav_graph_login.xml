@@ -4,16 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_login"
     app:startDestination="@+id/loginFragment">
-    <activity
-        android:id="@+id/faceDetectorActivity"
-        android:name="br.com.fusiondms.feature.facedetection.presentation.FaceDetectorActivity"
-        android:label="fece_detector_activity">
-    </activity>
 
     <fragment
         android:id="@+id/loginFragment"
         android:name="br.com.fusiondms.feature.login.presentation.LoginFragment"
-        android:label="login_fragment" >
+        android:label="login_fragment"
+        tools:layout="@layout/fragment_login">
 
         <action
             android:id="@+id/action_loginFragment_to_jornadaTrabalhoActivity"
@@ -43,20 +39,29 @@
     <fragment
         android:id="@+id/esqueciSenhaFragment"
         android:name="br.com.fusiondms.feature.login.presentation.EsqueciSenhaFragment"
-        android:label="esqueci_senha_fragment">
+        android:label="esqueci_senha_fragment"
+        tools:layout="@layout/fragment_esqueci_senha">
     </fragment>
 
     <fragment
         android:id="@+id/primeiroAcessoFragment"
         android:name="br.com.fusiondms.feature.login.presentation.PrimeiroAcessoFragment"
-        android:label="primeiro_acesso_fragment">
+        android:label="primeiro_acesso_fragment"
+        tools:layout="@layout/fragment_primeiro_acesso">
 
     </fragment>
 
     <activity
         android:id="@+id/jornadaTrabalhoActivity"
-        android:name="br.com.fusiondms.jornadatrabalho.JornadaTrabalhoActivity"
+        android:name="br.com.fusiondms.feature.jornadatrabalho.presentation.JornadaTrabalhoActivity"
         tools:layout="@layout/activity_jornada_trabalho">
+    </activity>
+
+    <activity
+        android:id="@+id/faceDetectorActivity"
+        android:name="br.com.fusiondms.feature.facedetection.presentation.FaceDetectorActivity"
+        android:label="fece_detector_activity"
+        tools:layout="@layout/activity_face_detector">
     </activity>
 
 </navigation>
