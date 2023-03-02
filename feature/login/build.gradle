@@ -10,4 +10,5 @@ dependencies {
     implementation project(':core:model')
     implementation project(':core:navigation')
     implementation project(':feature:face-detection')
+    implementation project(':feature:jornadatrabalho')
 }

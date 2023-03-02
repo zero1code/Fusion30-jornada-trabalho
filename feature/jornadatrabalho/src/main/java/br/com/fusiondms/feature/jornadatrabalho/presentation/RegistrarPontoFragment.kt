@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import br.com.fusiondms.core.common.converterDataParatextoLegivel
 import br.com.fusiondms.feature.facedetection.ModoDeteccao
 import br.com.fusiondms.feature.facedetection.presentation.FaceDetectorActivity
+import br.com.fusiondms.feature.jornadatrabalho.R
 import br.com.fusiondms.feature.jornadatrabalho.databinding.FragmentRegistrarPontoBinding
 import br.com.fusiondms.feature.jornadatrabalho.presentation.adapter.JornadaColaboradoresAdapter
 import br.com.fusiondms.feature.jornadatrabalho.presentation.viewmodel.JornadaTrabalhoViewModel
@@ -33,7 +34,7 @@ class RegistrarPontoFragment : Fragment() {
             val data: Intent? = result.data
             val faceEquals = data?.extras?.getBoolean(FaceDetectorActivity.FACE_DETECTOR_RESULT) ?: false
             if (faceEquals) {
-                findNavController().navigate(br.com.fusiondms.core.navigation.R.id.action_registrarPontoFragment_to_confirmarRegistroPontoFragment)
+                findNavController().navigate(R.id.action_registrarPontoFragment_to_confirmarRegistroPontoFragment)
             }
         }
     }
@@ -74,7 +75,7 @@ class RegistrarPontoFragment : Fragment() {
     private fun bindListeners() {
         adapter.onColaboradorClickListener = { colaborador ->
             jornadaViewModel.setColaboradorSelecionado(colaborador)
-            findNavController().navigate(br.com.fusiondms.core.navigation.R.id.action_registrarPontoFragment_to_confirmarRegistroPontoFragment)
+            findNavController().navigate(R.id.action_registrarPontoFragment_to_confirmarRegistroPontoFragment)
         }
 
         binding.btnRegistrarPonto.setOnClickListener {

@@ -1,11 +1,16 @@
 package br.com.fusiondms.feature.login.presentation
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavDeepLinkRequest
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
+import br.com.fusiondms.feature.login.R
 import br.com.fusiondms.feature.login.databinding.FragmentLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -37,14 +42,14 @@ class LoginFragment : Fragment() {
     private fun bindListeners() {
         binding.apply {
             btnLogin.setOnClickListener {
-                findNavController().navigate(br.com.fusiondms.core.navigation.R.id.action_loginFragment_to_jornadaTrabalhoActivity)
+                findNavController().navigate(R.id.action_loginFragment_to_jornadaTrabalhoActivity)
                 activity?.finish()
             }
             btnEsqueciSenha.setOnClickListener {
-                findNavController().navigate(br.com.fusiondms.core.navigation.R.id.action_loginFragment_to_esqueciSenhaFragment)
+                findNavController().navigate(R.id.action_loginFragment_to_esqueciSenhaFragment)
             }
             btnPrimeiroAcesso.setOnClickListener {
-                findNavController().navigate(br.com.fusiondms.core.navigation.R.id.action_loginFragment_to_primeiroAcessoFragment)
+                findNavController().navigate(R.id.action_loginFragment_to_primeiroAcessoFragment)
             }
         }
     }

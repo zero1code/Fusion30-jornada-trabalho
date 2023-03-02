@@ -57,11 +57,4 @@
         tools:layout="@layout/activity_jornada_trabalho">
     </activity>
 
-    <activity
-        android:id="@+id/faceDetectorActivity"
-        android:name="br.com.fusiondms.feature.facedetection.presentation.FaceDetectorActivity"
-        android:label="fece_detector_activity"
-        tools:layout="@layout/activity_face_detector">
-    </activity>
-
 </navigation>
