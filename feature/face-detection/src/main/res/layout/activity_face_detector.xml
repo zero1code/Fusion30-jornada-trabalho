@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.FaceDetectorActivity">
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/previewView_finder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:scaleType="fillCenter" >
+    </androidx.camera.view.PreviewView>
+
+    <br.com.fusiondms.feature.facedetection.camerax.GraphicOverlay
+        android:id="@+id/graphicOverlay_finder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <br.com.fusiondms.feature.facedetection.presentation.FacePosition
+        android:id="@+id/face_position"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Theme.Button.Normal"
+        android:id="@+id/btn_tirar_foto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="@dimen/dimen_medium"
+        android:layout_marginBottom="@dimen/dimen_medium"
+        android:text="@string/label_tirar_foto_rosto"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/image_captured"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/image_saved"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_large"/>
+
+</FrameLayout>

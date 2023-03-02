@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tv_solicitar_ajustes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/TextAppearance.App.Headline6"
+        android:layout_margin="@dimen/dimen_medium"
+        android:text="Solicitar Ajustes"/>
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Theme.Button.Ajustes.Jornada.Outlined"
+        android:id="@+id/btn_incluir_registro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_desconsiderar_registro"
+        android:layout_marginStart="@dimen/dimen_medium"
+        android:layout_marginEnd="@dimen/dimen_small"
+        android:text="Incluir registro"
+        android:drawableLeft="@drawable/ic_more_time"
+        android:layout_marginTop="@dimen/dimen_normal"
+        app:layout_constraintTop_toBottomOf="@id/tv_solicitar_ajustes" />
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Theme.Button.Ajustes.Jornada.Outlined"
+        android:id="@+id/btn_desconsiderar_registro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Desconsiderar registro"
+        android:drawableLeft="@drawable/ic_devolution"
+        android:layout_marginTop="@dimen/dimen_normal"
+        android:layout_marginEnd="@dimen/dimen_medium"
+        android:layout_marginStart="@dimen/dimen_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_incluir_registro"
+        app:layout_constraintTop_toBottomOf="@id/tv_solicitar_ajustes" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

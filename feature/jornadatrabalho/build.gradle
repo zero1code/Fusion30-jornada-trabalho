@@ -1,0 +1,14 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply from: "$rootDir/config/android-settings.gradle"
+
+android {
+}
+
+dependencies {
+    implementation project(':core:common')
+    implementation project(':core:database-jornada-trabalho')
+    implementation project(':core:model')
+    implementation project(':core:navigation')
+    implementation project(':feature:face-detection')
+}

@@ -1,0 +1,117 @@
+<resources>
+<!--    <string name="app_name">Fusion 3.0</string>-->
+
+    <!--    Descricoes-->
+    <string name="menu_inicio_description">Working day menu</string>
+    <string name="menu_recibo_description">Receipts menu</string>
+    <string name="label_proximo_description">Go next</string>
+    <!--    Descricoes-->
+
+    <!--    Labels com formatacao HTML-->
+
+    <!--    Labels com formatacao HTML-->
+
+    <!--    label de permissoes-->
+    <string name="label_aceitar_permissao">Grant permission</string>
+    <string name="label_ir_para_configuracoes">Go to settings</string>
+
+    <string name="label_permissao_localizacao">Location permission</string>
+    <string name="label_permissao_localizacao_mensagem">To continue, we need you allow Fusion to access the device\'s location.</string>
+    <string name="label_permissao_localizacao_aceita">Location permission granted</string>
+
+    <string name="label_permissao_camera">Camera Permission</string>
+    <string name="label_permissao_camera_mensagem">To continue, you need to allow device camera access.</string>
+    <string name="label_permissao_camera_aceita">Camera permission granted</string>
+    <!--    label de permissoes-->
+
+    <!--    label de botoes-->
+    <string name="label_tentar_novamente">Try again</string>
+    <string name="label_cancelar">Cancel</string>
+    <string name="label_confirmar">Confirm</string>
+    <string name="label_cadastrar">Register</string>
+    <string name="label_confirmar_registro_ponto">Confirm Clock in</string>
+    <string name="label_entrar">Enter</string>
+    <!--    label de botoes-->
+
+    <!--    label de uma palavra apenas-->
+    <string name="menu_inicio">Start</string>
+    <string name="menu_recibo">Receipts</string>
+    <string name="label_matricula">Registration</string>
+    <string name="label_motorista">Driver</string>
+    <string name="label_ajudante">Assistant</string>
+    <string name="label_nome">Name</string>
+    <string name="label_funcao">Role</string>
+    <string name="label_login">Login</string>
+    <string name="label_empresa">Company</string>
+    <string name="label_senha">Password</string>
+    <!--    label de uma palavra apenas-->
+
+    <!--    label de 2 ou 3 palavras-->
+
+    <string name="label_jornada_trabalho">Working day</string>
+    <string name="label_registrar_ponto">Clock in</string>
+    <string name="label_nome_completo">Full name</string>
+    <string name="label_horario_do_dia">%1$s, %2$s</string>
+    <string name="label_primeiro_acesso">First Access</string>
+    <string name="label_digite_matricula">Enter registration</string>
+    <string name="label_digite_id_empresa">Enter company ID</string>
+    <string name="label_digite_nome">Enter full name</string>
+    <string name="label_confirmar_dados">Confirm data</string>
+    <string name="label_esqueci_senha">Forgot password</string>
+    <string name="label_sucesso_atualizar_entrega">Delivery updated</string>
+    <string name="label_erro_atualizar_entrega">Unable to update delivery</string>
+    <string name="label_id_empresa">Company ID</string>
+    <string name="label_tirar_foto_rosto">Take Picture</string>
+    <string name="label_imagem_registrada">Picture registred!</string>
+    <string name="label_confirmar_dados_informados">Confirm the information entered: </string>
+    <!--    label de 2 ou 3 palavras-->
+
+    <!--    label de frases-->
+    <string name="label_digitar_id_empresa_info">Enter company ID:</string>
+    <string name="label_digitar_matricula_info">Now, enter your registration ID:</string>
+    <string name="label_qual_funcao_colaborador_info">What is your role in this company?</string>
+    <string name="label_primeiro_acesso_info">First access? Click here!</string>
+    <string name="label_tirar_foto_rosto_info">Now, We need to take a picture from your face. Please follow these steps:</string>
+    <string name="label_passo_1">1. Be in a location with good light.</string>
+    <string name="label_passo_2">2. Remove any accessories from your face.</string>
+    <string name="label_passo_3">3. Align your face to the indication that will be displayed on the screen.</string>
+    <string name="label_confirmacao_dados_info">If any data is incorrect or the photo is not good, press back to start again.</string>
+    <string name="label_cadastro_realizado">Your registration was successful!</string>
+    <!--    label de frases-->
+
+    <array name="bom_dia">
+        <item>Good morning</item>
+        <item>Great morning</item>
+        <item>Welcome back</item>
+        <item>It\'s a beautiful day</item>
+        <item>Have a great day</item>
+        <item>Good job today</item>
+    </array>
+
+    <array name="boa_tarde">
+        <item>Good morning</item>
+        <item>Great morning</item>
+        <item>Welcome back</item>
+        <item>It\'s a beautiful day</item>
+        <item>Have a great day</item>
+        <item>Good job today</item>
+    </array>
+
+    <array name="boa_noite">
+        <item>Good morning</item>
+        <item>Great morning</item>
+        <item>Welcome back</item>
+        <item>It\'s a beautiful day</item>
+        <item>Have a great day</item>
+        <item>Good job today</item>
+    </array>
+
+    <array name="frases_sincronizacao">
+        <item>Synchronizing carriages...</item>
+        <item>Wait a moment...</item>
+        <item>Connecting to the server...</item>
+        <item>Downloading Files...</item>
+        <item>Saving New Information</item>
+    </array>
+
+</resources>

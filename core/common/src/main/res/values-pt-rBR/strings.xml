@@ -1,0 +1,116 @@
+<resources>
+<!--    <string name="app_name">Fusion 3.0</string>-->
+
+    <!--    Descricoes-->
+    <string name="menu_inicio_description">Menu Jornada de trabalho</string>
+    <string name="menu_recibo_description">Menu Recibos Registro de ponto</string>
+    <string name="label_proximo_description">Próximo</string>
+    <!--    Descricoes-->
+
+    <!--    Labels com formatacao HTML-->
+
+    <!--    Labels com formatacao HTML-->
+
+    <!--    label de permissoes-->
+    <string name="label_aceitar_permissao">Conceder permissão</string>
+    <string name="label_ir_para_configuracoes">Ir para configurações</string>
+
+    <string name="label_permissao_localizacao">Permissão de localização</string>
+    <string name="label_permissao_localizacao_mensagem">Para continuar, nós precisamos que você precisa permitir que o Fusion acesse a localização do dispositivo.</string>
+    <string name="label_permissao_localizacao_aceita">Permissão de localização concedida</string>
+
+    <string name="label_permissao_camera">Permissão de Câmera</string>
+    <string name="label_permissao_camera_mensagem">Para continuar, você precisa permitir o acesso da câmera do dispositivo.</string>
+    <string name="label_permissao_camera_aceita">Permissão de câmera concedida</string>
+    <!--    label de permissoes-->
+
+    <!--    label de botoes-->
+    <string name="label_tentar_novamente">Tente novamente</string>
+    <string name="label_cancelar">Cancelar</string>
+    <string name="label_confirmar">Confirmar</string>
+    <string name="label_cadastrar">Cadastrar</string>
+    <string name="label_confirmar_registro_ponto">Confirmar registro de ponto</string>
+    <string name="label_entrar">Entrar</string>
+    <!--    label de botoes-->
+
+    <!--    label de uma palavra apenas-->
+    <string name="menu_inicio">Início</string>
+    <string name="menu_recibo">Recibos</string>
+    <string name="label_matricula">Matrícula</string>
+    <string name="label_motorista">Motorista</string>
+    <string name="label_ajudante">Ajudante</string>
+    <string name="label_nome">Nome</string>
+    <string name="label_funcao">Função</string>
+    <string name="label_login">Login</string>
+    <string name="label_empresa">Empresa</string>
+    <string name="label_senha">Senha</string>
+    <!--    label de uma palavra apenas-->
+
+    <!--    label de 2 ou 3 palavras-->
+    <string name="label_jornada_trabalho">Jornada de Trabalho</string>
+    <string name="label_registrar_ponto">Registrar ponto</string>
+    <string name="label_nome_completo">Nome completo</string>
+    <string name="label_horario_do_dia">%1$s, %2$s</string>
+    <string name="label_primeiro_acesso">Primeiro Acesso</string>
+    <string name="label_digite_matricula">Digite a matrícula</string>
+    <string name="label_digite_id_empresa">Digite o ID da empresa</string>
+    <string name="label_digite_nome">Digite o nome completo</string>
+    <string name="label_confirmar_dados">Confirmar dados</string>
+    <string name="label_esqueci_senha">Esqueci a senha</string>
+    <string name="label_sucesso_atualizar_entrega">Entrega atualizada</string>
+    <string name="label_erro_atualizar_entrega">Falha ao atualizar entrega</string>
+    <string name="label_id_empresa">Id da empresa</string>
+    <string name="label_tirar_foto_rosto">Tirar Foto</string>
+    <string name="label_imagem_registrada">Imagem registrada!</string>
+    <string name="label_confirmar_dados_informados">Confirme os dados informados: </string>
+    <!--    label de 2 ou 3 palavras-->
+
+    <!--    label de frases-->
+    <string name="label_digitar_id_empresa_info">Digite o ID da empresa:</string>
+    <string name="label_digitar_matricula_info">Agora, digite a sua matrícula:</string>
+    <string name="label_qual_funcao_colaborador_info">Qual é a sua função nessa empresa?</string>
+    <string name="label_primeiro_acesso_info">Primeiro acesso? Clique aqui!</string>
+    <string name="label_tirar_foto_rosto_info">Agora, precisamos tirar uma foto do seu rosto. Por favor, siga essas instruções:</string>
+    <string name="label_passo_1">1. Esteja em um ambiente bem iluminado.</string>
+    <string name="label_passo_2">2. Remova qualquer acessório que estiver em seu rosto.</string>
+    <string name="label_passo_3">3. Alinhe seu rosto na indicação que será exibida na tela.</string>
+    <string name="label_confirmacao_dados_info">Se algum dado estiver incorreto ou a foto não estiver boa, pressione voltar para iniciar novamente.</string>
+    <string name="label_cadastro_realizado">Seu Cadastro foi realizado com sucesso!</string>
+    <!--    label de frases-->
+
+    <array name="bom_dia">
+        <item>Bom dia</item>
+        <item>Ótima manhã</item>
+        <item>bem vindo de volta</item>
+        <item>Está um lindo dia</item>
+        <item>Tenha um ótimo dia</item>
+        <item>Bom trabalho hoje</item>
+    </array>
+
+    <array name="boa_tarde">
+        <item>Bom dia</item>
+        <item>Ótima manhã</item>
+        <item>bem vindo de volta</item>
+        <item>Está um lindo dia</item>
+        <item>Tenha um ótimo dia</item>
+        <item>Bom trabalho hoje</item>
+    </array>
+
+    <array name="boa_noite">
+        <item>Bom dia</item>
+        <item>Ótima manhã</item>
+        <item>bem vindo de volta</item>
+        <item>Está um lindo dia</item>
+        <item>Tenha um ótimo dia</item>
+        <item>Bom trabalho hoje</item>
+    </array>
+
+    <array name="frases_sincronizacao">
+        <item>Sincronizando cargas...</item>
+        <item>Espere um momento...</item>
+        <item>Conectando-se ao servidor...</item>
+        <item>baixando arquivos...</item>
+        <item>Salvando novas informções...</item>
+    </array>
+
+</resources>

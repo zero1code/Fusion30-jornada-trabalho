@@ -1,0 +1,25 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "Fusion Jornada de Trabalho"
+include ':app'
+include ':core:common'
+include ':core:datastore'
+include ':core:model'
+include ':core:navigation'
+include ':core:network'
+include ':feature:jornadatrabalho'
+include ':feature:login'
+include ':core:database-jornada-trabalho'
+include ':feature:face-detection'
