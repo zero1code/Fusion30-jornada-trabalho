@@ -122,6 +122,16 @@
                 android:layout_marginVertical="@dimen/dimen_normal"
                 android:text="@string/label_tirar_foto_rosto_info" />
 
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_foto"
+                android:layout_width="@dimen/image_logo_height"
+                android:layout_height="@dimen/image_logo_height"
+                android:tint="@color/brand_green_success"
+                android:layout_marginVertical="@dimen/dimen_medium"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/tv_title"
+                app:srcCompat="@drawable/ic_foco_face"/>
+
             <TextView
                 android:id="@+id/tv_step1"
                 style="@style/TextAppearance.App.Subtitle1"
@@ -130,7 +140,7 @@
                 android:layout_marginHorizontal="@dimen/dimen_medium"
                 android:layout_marginVertical="@dimen/dimen_normal"
                 android:text="@string/label_passo_1"
-                android:layout_below="@id/tv_title"/>
+                android:layout_below="@id/iv_foto"/>
             <TextView
                 android:id="@+id/tv_step2"
                 style="@style/TextAppearance.App.Subtitle1"
@@ -176,8 +186,8 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/iv_face_cadastrada"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="@dimen/image_foto_face"
+                android:layout_height="@dimen/image_foto_face"
                 android:scaleType="centerCrop"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginHorizontal="@dimen/dimen_medium"
@@ -217,6 +227,50 @@
                 android:layout_marginHorizontal="@dimen/dimen_medium"
                 android:layout_marginVertical="@dimen/dimen_large"
                 android:text="@string/label_confirmacao_dados_info"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextAppearance.App.Headline4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dimen_medium"
+                android:layout_marginVertical="@dimen/dimen_normal"
+                android:text="@string/label_cadastro_realizado" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/image_foto_face"
+                android:layout_height="@dimen/image_foto_face"
+                app:srcCompat="@drawable/ic_check_circle"
+                android:tint="@color/brand_green_success"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginVertical="@dimen/dimen_medium"/>
+
+            <TextView
+                style="@style/TextAppearance.App.Subtitle1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dimen_normal"
+                android:layout_marginHorizontal="@dimen/dimen_medium"
+                android:layout_marginTop="@dimen/dimen_large"
+                android:text="@string/label_cadastro_realizado_aguarde_1"
+                app:drawableStartCompat="@drawable/ic_checklist"
+                app:drawableTint="@color/brand_green_success" />
+            <TextView
+                style="@style/TextAppearance.App.Subtitle1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dimen_normal"
+                android:layout_marginHorizontal="@dimen/dimen_medium"
+                android:layout_marginVertical="@dimen/dimen_medium"
+                android:text="@string/label_cadastro_realizado_aguarde_2"
+                app:drawableStartCompat="@drawable/ic_notificacao"
+                app:drawableTint="@color/brand_green_success" />
 
         </LinearLayout>
 

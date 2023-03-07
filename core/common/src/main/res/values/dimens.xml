@@ -15,16 +15,14 @@
     <dimen name="big_text">24sp</dimen>
     <dimen name="large_text">32sp</dimen>
 
-    <dimen name="card_sincronizacao">90dp</dimen>
     <dimen name="card_elevation">6dp</dimen>
     <dimen name="card_border_radius">8dp</dimen>
-    <dimen name="card_jornada_size">150dp</dimen>
     <dimen name="card_stroke_width">2dp</dimen>
 
-    <dimen name="bottom_sheet_peek_height">200dp</dimen>
     <dimen name="image_capa">210dp</dimen>
     <dimen name="image_logo_width">200dp</dimen>
     <dimen name="image_logo_height">100dp</dimen>
+    <dimen name="image_foto_face">150dp</dimen>
 
     <dimen name="dimen_zero">0dp</dimen>
 </resources>

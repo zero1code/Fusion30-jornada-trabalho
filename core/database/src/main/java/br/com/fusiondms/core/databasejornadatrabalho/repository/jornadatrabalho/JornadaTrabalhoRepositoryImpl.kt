@@ -5,13 +5,18 @@ import br.com.fusiondms.core.databasejornadatrabalho.dao.ColaboradorDao
 import br.com.fusiondms.core.databasejornadatrabalho.model.jornadatrabalho.ColaboradorEntity
 import br.com.fusiondms.core.databasejornadatrabalho.model.jornadatrabalho.ReciboRegistroPontoEntity
 import br.com.fusiondms.core.databasejornadatrabalho.model.jornadatrabalho.RegistroPontoEntity
+import br.com.fusiondms.core.model.exceptions.ErrorGetColaborador
+import br.com.fusiondms.core.model.exceptions.ErrorJornadaTrabalho
+import br.com.fusiondms.core.model.exceptions.ErrorSalvarRegistroPonto
 import br.com.fusiondms.core.model.jornadatrabalho.Colaborador
 import br.com.fusiondms.core.model.jornadatrabalho.ReciboRegistroPonto
 import br.com.fusiondms.core.model.jornadatrabalho.RegistroPonto
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import java.time.Instant
 import javax.inject.Inject
 
 class JornadaTrabalhoRepositoryImpl @Inject constructor(
@@ -19,29 +24,26 @@ class JornadaTrabalhoRepositoryImpl @Inject constructor(
     private val dispatcher: CoroutineDispatcher,
     private val context: Context
 ) : JornadaTrabalhoRepository {
-    override suspend fun inserirColaborador(colaborador: Colaborador): Flow<Long> {
-        return flow {
-            try {
-                val result = colaboradorDao.inserirColaborador(ColaboradorEntity().mapModelToEntity(colaborador))
-                emit(result)
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }
-    }
 
     override suspend fun inserirRegistroPonto(registroPonto: RegistroPonto): Flow<Long> {
         return flow {
             try {
+                delay(2000)
                 val result = colaboradorDao.inserirRegistroPonto(RegistroPontoEntity().mapModelToEntity(registroPonto))
+                if (result > 0) {
+                    emit(result)
+                } else {
+                    throw ErrorSalvarRegistroPonto("Erro ao salvar registro de ponto.")
+                }
                 emit(result)
             } catch (e: Exception) {
                 e.printStackTrace()
+                throw ErrorJornadaTrabalho(e.message)
             }
-        }
+        }.flowOn(dispatcher)
     }
 
-    override suspend fun getAllRecibos(): Flow<List<ReciboRegistroPonto>> {
+    override suspend fun getAllRecibo(): Flow<List<ReciboRegistroPonto>> {
         return flow {
             try {
                 val lista = colaboradorDao.getAllRecibo()
@@ -49,21 +51,26 @@ class JornadaTrabalhoRepositoryImpl @Inject constructor(
             } catch (e: Exception) {
                 e.printStackTrace()
             }
-        }
+        }.flowOn(dispatcher)
     }
 
-    override suspend fun getColaborador(id: Int): Flow<Colaborador> {
+    override suspend fun getColaborador(matricula: Long): Flow<Colaborador> {
         return flow {
             try {
-                val colaborador = colaboradorDao.getColaborador(id) ?: ColaboradorEntity()
+                val colaborador = colaboradorDao.getColaborador(matricula) ?: ColaboradorEntity()
+                if (colaborador.matricula != 0L) {
                     emit(ColaboradorEntity().mapEntityToModel(colaborador))
+                } else {
+                   throw ErrorGetColaborador("O Colaborador não foi encontrado.")
+                }
             } catch (e: Exception) {
                 e.printStackTrace()
+                throw ErrorJornadaTrabalho(e.message)
             }
-        }
+        }.flowOn(dispatcher)
     }
 
-    override suspend fun getAllRegistroPonto(matricula: Int): Flow<List<RegistroPonto>> {
+    override suspend fun getAllRegistroPontoDia(matricula: Long): Flow<List<RegistroPonto>> {
         return flow {
             try {
                 val lista = colaboradorDao.getAllRegistroPonto(matricula)
@@ -71,6 +78,6 @@ class JornadaTrabalhoRepositoryImpl @Inject constructor(
             } catch (e: Exception) {
                 e.printStackTrace()
             }
-        }
+        }.flowOn(dispatcher)
     }
 }

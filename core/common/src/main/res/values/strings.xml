@@ -58,12 +58,12 @@
     <string name="label_digite_nome">Enter full name</string>
     <string name="label_confirmar_dados">Confirm data</string>
     <string name="label_esqueci_senha">Forgot password</string>
-    <string name="label_sucesso_atualizar_entrega">Delivery updated</string>
-    <string name="label_erro_atualizar_entrega">Unable to update delivery</string>
     <string name="label_id_empresa">Company ID</string>
     <string name="label_tirar_foto_rosto">Take Picture</string>
     <string name="label_imagem_registrada">Picture registred!</string>
     <string name="label_confirmar_dados_informados">Confirm the information entered: </string>
+    <string name="label_aguarde_momento">Wait a moment…</string>
+    <string name="label_login_falhou">Login failed</string>
     <!--    label de 2 ou 3 palavras-->
 
     <!--    label de frases-->
@@ -77,6 +77,11 @@
     <string name="label_passo_3">3. Align your face to the indication that will be displayed on the screen.</string>
     <string name="label_confirmacao_dados_info">If any data is incorrect or the photo is not good, press back to start again.</string>
     <string name="label_cadastro_realizado">Your registration was successful!</string>
+    <string name="label_cadastro_realizado_aguarde_1">Now your company must analyze the data sent to release your access.</string>
+    <string name="label_cadastro_realizado_aguarde_2">Don\'t worry, you will be notified when the analysis is complete.</string>
+    <string name="label_realizando_cadastro">Please wait, we are registering…</string>
+    <string name="label_erro_cadastro">Failed to register.</string>
+    <string name="label_ponto_registrado">Clock in registered successfully.</string>
     <!--    label de frases-->
 
     <array name="bom_dia">

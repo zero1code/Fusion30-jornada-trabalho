@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:id="@+id/nested_scroll_view"
     tools:context=".presentation.LoginFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -68,7 +69,7 @@
                     app:startIconDrawable="@drawable/ic_empresa">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edt_empresa"
+                        android:id="@+id/et_empresa"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="number">
@@ -86,7 +87,7 @@
                     app:startIconDrawable="@drawable/ic_colaborador">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edt_matricula"
+                        android:id="@+id/et_matricula"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="number">
@@ -104,7 +105,7 @@
                     app:startIconDrawable="@drawable/ic_cadeado">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edt_senha"
+                        android:id="@+id/et_senha"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberPassword">

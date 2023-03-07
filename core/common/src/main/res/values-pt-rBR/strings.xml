@@ -57,12 +57,12 @@
     <string name="label_digite_nome">Digite o nome completo</string>
     <string name="label_confirmar_dados">Confirmar dados</string>
     <string name="label_esqueci_senha">Esqueci a senha</string>
-    <string name="label_sucesso_atualizar_entrega">Entrega atualizada</string>
-    <string name="label_erro_atualizar_entrega">Falha ao atualizar entrega</string>
     <string name="label_id_empresa">Id da empresa</string>
     <string name="label_tirar_foto_rosto">Tirar Foto</string>
     <string name="label_imagem_registrada">Imagem registrada!</string>
     <string name="label_confirmar_dados_informados">Confirme os dados informados: </string>
+    <string name="label_aguarde_momento">Aguarde um momento…</string>
+    <string name="label_login_falhou">Login falhou</string>
     <!--    label de 2 ou 3 palavras-->
 
     <!--    label de frases-->
@@ -76,6 +76,11 @@
     <string name="label_passo_3">3. Alinhe seu rosto na indicação que será exibida na tela.</string>
     <string name="label_confirmacao_dados_info">Se algum dado estiver incorreto ou a foto não estiver boa, pressione voltar para iniciar novamente.</string>
     <string name="label_cadastro_realizado">Seu Cadastro foi realizado com sucesso!</string>
+    <string name="label_cadastro_realizado_aguarde_1">Agora a sua empresa deverá analisar os dados enviados para fazer a liberação do seu acesso.</string>
+    <string name="label_cadastro_realizado_aguarde_2">Não se preocupe, você será notificado quando a ánalise for concluída.</string>
+    <string name="label_realizando_cadastro">Aguarde, estamos realizando o cadastro…</string>
+    <string name="label_erro_cadastro">Erro ao realizar o cadastro.</string>
+    <string name="label_ponto_registrado">Ponto registrado com sucesso.</string>
     <!--    label de frases-->
 
     <array name="bom_dia">

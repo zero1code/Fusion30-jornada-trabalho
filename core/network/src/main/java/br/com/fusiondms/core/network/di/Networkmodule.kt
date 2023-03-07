@@ -11,15 +11,11 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-private const val BASE_URL = "http://192.168.1.2:3002/"
+private const val BASE_URL = "http://192.168.1.9:3003/"
 
 @Module
 @InstallIn(SingletonComponent::class)
 object Networkmodule {
-
-    @Singleton
-    @Provides
-    fun provideContext(application: Application): Context = application.applicationContext
 
     @Singleton
     @Provides
@@ -28,19 +24,4 @@ object Networkmodule {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
         .create(FusionApi::class.java)
-
-//    @Singleton
-//    @Provides
-//    fun provideSincronizacaoRepository(
-//        fusionApi: FusionApi,
-//        appDatabase: AppDatabase
-//    ): SincronizacaoRepository = SincronizacaoRepositoryImpl(fusionApi, appDatabase, Dispatchers.IO)
-//
-//    @Singleton
-//    @Provides
-//    fun provideRecusarCarga(
-//        fusionApi: FusionApi,
-//        appDatabase: AppDatabase,
-//        context: Context
-//    ) : RecusarCargaRepository = RecusarCargaRepositoryImpl(fusionApi, appDatabase, Dispatchers.IO, context)
 }

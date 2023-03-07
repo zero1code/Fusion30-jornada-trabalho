@@ -16,7 +16,7 @@ fun Activity.showProgressBar(titulo: String): AlertDialog {
     binding.tvTitulo.text = titulo
 
     builder.setView(binding.root)
-    builder.setCancelable(true)
+    builder.setCancelable(false)
     builder.background = ColorDrawable(Color.TRANSPARENT)
 
     val dialog = builder.create()

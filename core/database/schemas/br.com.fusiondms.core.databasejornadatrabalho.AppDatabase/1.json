@@ -2,12 +2,18 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "99b2151a9df6f07c2360cf85e86b55bc",
+    "identityHash": "8a75264a3894e424cb53e1068355d513",
     "entities": [
       {
-        "tableName": "tb_colaboradores",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`matricula` INTEGER NOT NULL, `nome` TEXT NOT NULL, `funcao` TEXT NOT NULL, PRIMARY KEY(`matricula`))",
+        "tableName": "tb_colaborador",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idEmpresa` INTEGER NOT NULL, `matricula` INTEGER NOT NULL, `nome` TEXT NOT NULL, `funcao` TEXT NOT NULL, `image64` TEXT, `imagePath` TEXT, PRIMARY KEY(`matricula`))",
         "fields": [
+          {
+            "fieldPath": "idEmpresa",
+            "columnName": "idEmpresa",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
           {
             "fieldPath": "matricula",
             "columnName": "matricula",
@@ -25,6 +31,18 @@
             "columnName": "funcao",
             "affinity": "TEXT",
             "notNull": true
+          },
+          {
+            "fieldPath": "image64",
+            "columnName": "image64",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "imagePath",
+            "columnName": "imagePath",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -37,7 +55,7 @@
         "foreignKeys": []
       },
       {
-        "tableName": "tb_registros_ponto",
+        "tableName": "tb_registro_ponto",
         "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `matricula` INTEGER NOT NULL, `dataRegistro` INTEGER NOT NULL, `registroEfetuado` INTEGER NOT NULL)",
         "fields": [
           {
@@ -78,7 +96,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '99b2151a9df6f07c2360cf85e86b55bc')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8a75264a3894e424cb53e1068355d513')"
     ]
   }
 }

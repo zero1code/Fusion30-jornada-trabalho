@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.map
 import java.io.IOException
 import javax.inject.Inject
 
-private const val PREFERENCES_NAME = "fusion_preferences"
+private const val PREFERENCES_NAME = "fusion_jornada_preferences"
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = PREFERENCES_NAME)
 

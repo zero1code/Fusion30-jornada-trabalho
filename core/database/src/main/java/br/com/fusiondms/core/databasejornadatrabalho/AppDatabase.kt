@@ -3,6 +3,7 @@ package br.com.fusiondms.core.databasejornadatrabalho
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import br.com.fusiondms.core.databasejornadatrabalho.dao.ColaboradorDao
+import br.com.fusiondms.core.databasejornadatrabalho.dao.LoginDao
 import br.com.fusiondms.core.databasejornadatrabalho.model.jornadatrabalho.ColaboradorEntity
 import br.com.fusiondms.core.databasejornadatrabalho.model.jornadatrabalho.RegistroPontoEntity
 
@@ -12,5 +13,7 @@ import br.com.fusiondms.core.databasejornadatrabalho.model.jornadatrabalho.Regis
     autoMigrations = []
 )
 abstract class AppDatabase: RoomDatabase() {
-    abstract fun getColaboradorDto() : ColaboradorDao
+    abstract fun getColaboradorDao() : ColaboradorDao
+
+    abstract fun getLoginDao() : LoginDao
 }

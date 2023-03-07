@@ -15,7 +15,10 @@ import javax.inject.Singleton
 object DatabaseModule {
 
     @Provides
-    fun provideColaboradorDao(appDatabase: AppDatabase) = appDatabase.getColaboradorDto()
+    fun provideColaboradorDao(appDatabase: AppDatabase) = appDatabase.getColaboradorDao()
+
+    @Provides
+    fun provideLoginDao(appDatabase: AppDatabase) = appDatabase.getLoginDao()
 
     @Provides
     @Singleton

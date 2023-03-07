@@ -43,12 +43,12 @@ class RecibosFragment : Fragment() {
 
     private fun bindObservers() {
         lifecycleScope.launchWhenStarted {
-            jornadaViewModel.listaReccibo.collect { result ->
+            jornadaViewModel.listaRecibo.collect { result ->
                 when(result) {
-                    is JornadaTrabalhoViewModel.JornadaStatus.SuccessListaRecibo -> {
+                    is JornadaTrabalhoViewModel.StatusRecibo.Success -> {
                         adapter.submitList(result.listaRecibo)
                     }
-                    is JornadaTrabalhoViewModel.JornadaStatus.ErroRecibo -> {
+                    is JornadaTrabalhoViewModel.StatusRecibo.Error -> {
                         Toast.makeText(requireContext(), "Erro", Toast.LENGTH_SHORT).show()
                     }
                     else -> Unit
@@ -59,7 +59,6 @@ class RecibosFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        jornadaViewModel.resetJornadaState()
         _binding = null
     }
 }
