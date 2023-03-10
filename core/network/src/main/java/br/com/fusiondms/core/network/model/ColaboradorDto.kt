@@ -1,6 +1,6 @@
 package br.com.fusiondms.core.network.model
 
-import br.com.fusiondms.core.databasejornadatrabalho.model.jornadatrabalho.ColaboradorEntity
+import br.com.fusiondms.core.database.model.jornadatrabalho.ColaboradorEntity
 import br.com.fusiondms.core.model.jornadatrabalho.Colaborador
 import br.com.fusiondms.core.network.mapper.DtoMapper
 import com.google.gson.Gson

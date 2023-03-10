@@ -1,7 +1,7 @@
 package br.com.fusiondms.core.network.repository.login
 
 import android.content.Context
-import br.com.fusiondms.core.databasejornadatrabalho.AppDatabase
+import br.com.fusiondms.core.database.AppDatabase
 import br.com.fusiondms.core.model.exceptions.ErrorApiLogin
 import br.com.fusiondms.core.model.exceptions.ErrorLogin
 import br.com.fusiondms.core.model.exceptions.ErrorSalvarColaboradorLocalLogin

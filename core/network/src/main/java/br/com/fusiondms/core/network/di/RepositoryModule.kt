@@ -1,7 +1,7 @@
 package br.com.fusiondms.core.network.di
 
 import android.content.Context
-import br.com.fusiondms.core.databasejornadatrabalho.AppDatabase
+import br.com.fusiondms.core.database.AppDatabase
 import br.com.fusiondms.core.network.api.FusionApi
 import br.com.fusiondms.core.network.repository.login.LoginRepository
 import br.com.fusiondms.core.network.repository.login.LoginRepositoryImpl

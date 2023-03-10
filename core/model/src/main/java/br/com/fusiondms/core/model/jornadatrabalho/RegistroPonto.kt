@@ -4,5 +4,7 @@ data class RegistroPonto(
     val id: Int = 0,
     val matricula: Long,
     val dataRegistro: Long,
-    val registroEfetuado: Boolean
+    val registroEfetuado: Boolean,
+    val latitude: String,
+    val longitude: String
 )

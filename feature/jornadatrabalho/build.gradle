@@ -11,5 +11,6 @@ dependencies {
     implementation project(':core:datastore')
     implementation project(':core:model')
     implementation project(':core:navigation')
+    implementation project(':core:services')
     implementation project(':feature:face-detection')
 }

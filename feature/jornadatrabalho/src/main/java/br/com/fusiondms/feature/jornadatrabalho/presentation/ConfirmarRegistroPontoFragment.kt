@@ -1,7 +1,13 @@
 package br.com.fusiondms.feature.jornadatrabalho.presentation
 
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.location.Location
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,10 +22,9 @@ import br.com.fusiondms.core.common.bottomdialog.Dialog
 import br.com.fusiondms.core.common.converterDataParaDiaMesAnoHoraMinuto
 import br.com.fusiondms.core.common.converterDataParaHorasMinutos
 import br.com.fusiondms.core.common.progressdialog.showProgressBar
-import br.com.fusiondms.core.common.snackbar.TipoMensagem
-import br.com.fusiondms.core.common.snackbar.showMessage
 import br.com.fusiondms.core.model.jornadatrabalho.Colaborador
 import br.com.fusiondms.core.model.jornadatrabalho.RegistroPonto
+import br.com.fusiondms.core.services.location.ForegroundLocationService
 import br.com.fusiondms.feature.facedetection.presentation.utils.getSavedFacePhoto
 import br.com.fusiondms.feature.jornadatrabalho.databinding.FragmentConfirmarRegistroPontoBinding
 import br.com.fusiondms.feature.jornadatrabalho.presentation.viewmodel.JornadaTrabalhoViewModel
@@ -36,11 +41,17 @@ class ConfirmarRegistroPontoFragment : Fragment() {
     private lateinit var progressDialog: AlertDialog
 
     private val jornadaViewModel: JornadaTrabalhoViewModel by activityViewModels()
-    private lateinit var timer: Timer
-    private lateinit var timerSucesso: Timer
+    private val timerAtualizaData = Timer()
+    private val timerSucesso = Timer()
+    private val timerRegistroPonto = Timer()
     private lateinit var registroPonto: RegistroPonto
 
     private lateinit var colaborador: Colaborador
+
+    private var currentLatitude = ""
+    private var currentLongitude = ""
+    // Escuta o location broadcasts do ForegroundOnlyLocationService.
+    private lateinit var locationBroadcastReceiver: LocationBroadcastReceiver
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,6 +63,8 @@ class ConfirmarRegistroPontoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        locationBroadcastReceiver = LocationBroadcastReceiver()
+
         bindObservers()
         bindListeners()
     }
@@ -92,22 +105,32 @@ class ConfirmarRegistroPontoFragment : Fragment() {
     }
 
     private fun bindListeners() {
-        timer = Timer()
-        timer.scheduleAtFixedRate(timerTask() {
+        timerAtualizaData.scheduleAtFixedRate(timerTask() {
             jornadaViewModel.atualizarData()
-        }, 1000, 5000)
+        }, 1 * 1000, 5 * 1000)
 
-        binding.btnRegistrarPonto.setOnClickListener { registrarPonto() }
+        binding.btnRegistrarPonto.setOnClickListener {
+            progressDialog = requireActivity().showProgressBar(getString(br.com.fusiondms.core.common.R.string.label_aguarde_momento))
+            progessDialogStatus(true)
+            registrarPonto()
+        }
     }
 
     private fun registrarPonto() {
-        progressDialog = requireActivity().showProgressBar(getString(br.com.fusiondms.core.common.R.string.label_aguarde_momento))
-        registroPonto = RegistroPonto(
-            matricula = colaborador.matricula,
-            dataRegistro = jornadaViewModel.horaAtual.value,
-            registroEfetuado = false
-        )
-        jornadaViewModel.inserirRegistroPonto(registroPonto)
+        if (currentLatitude != "" && currentLongitude != "") {
+            registroPonto = RegistroPonto(
+                matricula = colaborador.matricula,
+                dataRegistro = jornadaViewModel.horaAtual.value,
+                registroEfetuado = false,
+                latitude = currentLatitude,
+                longitude = currentLongitude
+            )
+            jornadaViewModel.inserirRegistroPonto(registroPonto)
+        } else {
+            timerRegistroPonto.schedule(timerTask() {
+                registrarPonto()
+            }, 3 * 1000)
+        }
     }
 
     private fun sucessoRegistrarPonto() {
@@ -116,7 +139,6 @@ class ConfirmarRegistroPontoFragment : Fragment() {
                 vfFormulario.displayedChild = 1
                 tvNomeRecibo.text = colaborador.nome
                 tvData.text = converterDataParaDiaMesAnoHoraMinuto(registroPonto.dataRegistro)
-                timerSucesso = Timer()
                 timerSucesso.schedule(timerTask() {
                     requireActivity().runOnUiThread {
                         findNavController().navigateUp()
@@ -158,9 +180,33 @@ class ConfirmarRegistroPontoFragment : Fragment() {
         }
     }
 
+    private inner class LocationBroadcastReceiver : BroadcastReceiver() {
+        override fun onReceive(context: Context, intent: Intent) {
+            val location = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                intent.extras?.getParcelable(ForegroundLocationService.EXTRA_LOCATION, Location::class.java)
+            } else {
+                intent.getParcelableExtra(ForegroundLocationService.EXTRA_LOCATION)
+            }
+
+            location?.let {
+                currentLatitude = it.latitude.toString()
+                currentLongitude = it.longitude.toString()
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val intentFilter = IntentFilter(ForegroundLocationService.ACTION_FOREGROUND_ONLY_LOCATION_BROADCAST)
+        requireActivity().registerReceiver(locationBroadcastReceiver, intentFilter)
+    }
+
     override fun onDestroy() {
+        requireActivity().unregisterReceiver(locationBroadcastReceiver)
         super.onDestroy()
-        timer.cancel()
+        timerAtualizaData.cancel()
+        timerRegistroPonto.cancel()
         timerSucesso.cancel()
         jornadaViewModel.resetJornadaState()
         _binding = null

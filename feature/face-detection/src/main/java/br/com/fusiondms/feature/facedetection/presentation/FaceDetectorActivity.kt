@@ -29,11 +29,13 @@ import br.com.fusiondms.feature.facedetection.presentation.utils.*
 import br.com.fusiondms.feature.facedetection.tflite.Recognition
 import br.com.fusiondms.feature.facedetection.tflite.SimilarityClassifier
 import br.com.fusiondms.feature.facedetection.tflite.TFLiteObjectDetectionAPIModel
+import dagger.hilt.android.AndroidEntryPoint
 import java.io.IOException
 import java.lang.Integer.min
 import java.util.*
 import kotlin.properties.Delegates
 
+@AndroidEntryPoint
 class FaceDetectorActivity : AppCompatActivity(), FaceDetectStatus {
     private var _binding: ActivityFaceDetectorBinding? = null
     private val binding get() = _binding!!

@@ -1,6 +1,6 @@
 package br.com.fusiondms.feature.jornadatrabalho.domain.jornadatrabalhousecase
 
-import br.com.fusiondms.core.databasejornadatrabalho.repository.jornadatrabalho.JornadaTrabalhoRepository
+import br.com.fusiondms.core.database.repository.jornadatrabalho.JornadaTrabalhoRepository
 import br.com.fusiondms.core.model.jornadatrabalho.Colaborador
 import br.com.fusiondms.core.model.jornadatrabalho.ReciboRegistroPonto
 import br.com.fusiondms.core.model.jornadatrabalho.RegistroPonto

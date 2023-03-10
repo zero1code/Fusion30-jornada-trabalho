@@ -132,6 +132,9 @@ class JornadaTrabalhoViewModel @Inject constructor(
             _registrosPonto.emit(StatusRegistroPonto.Nothing)
         }
 
+    fun getForegroundEnabled(): Boolean? = runBlocking {
+        dataStoreRepository.getBoolean(DataStoreChaves.KEY_FOREGROUND_ATIVADO)
+    }
     private fun getMatricula(): String? = runBlocking {
         dataStoreRepository.getString(DataStoreChaves.MATRICULA_MOTORISTA)
     }

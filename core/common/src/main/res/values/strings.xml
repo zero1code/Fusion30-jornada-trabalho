@@ -22,6 +22,9 @@
     <string name="label_permissao_camera">Camera Permission</string>
     <string name="label_permissao_camera_mensagem">To continue, you need to allow device camera access.</string>
     <string name="label_permissao_camera_aceita">Camera permission granted</string>
+
+    <string name="label_permissao_localizacao_background">Background location</string>
+    <string name="label_permissao_localizacao_background_mensagem">You need to allow the app\'s location service to run in the background.</string>
     <!--    label de permissoes-->
 
     <!--    label de botoes-->
