@@ -79,7 +79,7 @@ class ForegroundLocationService : Service() {
                 Log.d(TAG, "Current location: $myCurrentLocation")
                 runBlocking { dataStoreRepository.putLocation(myCurrentLocation, latitude, longitude) }
 
-                val intent = Intent(ACTION_FOREGROUND_ONLY_LOCATION_BROADCAST)
+                val intent = Intent(ACTION_FOREGROUND_LOCATION_BROADCAST)
                 intent.putExtra(EXTRA_LOCATION, currentLocation)
                 applicationContext.sendBroadcast(intent)
 
@@ -260,8 +260,8 @@ class ForegroundLocationService : Service() {
 
         private const val PACKAGE_NAME = "br.com.fusiondms.core.services.location"
 
-        const val ACTION_FOREGROUND_ONLY_LOCATION_BROADCAST =
-            "$PACKAGE_NAME.action.FOREGROUND_ONLY_LOCATION_BROADCAST"
+        const val ACTION_FOREGROUND_LOCATION_BROADCAST =
+            "$PACKAGE_NAME.action.FOREGROUND_LOCATION_BROADCAST"
 
         const val EXTRA_LOCATION = "$PACKAGE_NAME.extra.LOCATION"
 
@@ -270,7 +270,7 @@ class ForegroundLocationService : Service() {
 
         private const val NOTIFICATION_ID = 1
 
-        private const val NOTIFICATION_CHANNEL_ID = "while_in_use_channel_01"
+        private const val NOTIFICATION_CHANNEL_ID = "localizacao"
     }
 
     private fun Location?.toText(): String {

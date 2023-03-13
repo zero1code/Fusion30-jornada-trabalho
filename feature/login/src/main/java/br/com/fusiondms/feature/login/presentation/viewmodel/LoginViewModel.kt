@@ -50,7 +50,7 @@ class LoginViewModel @Inject constructor(
     }
 
     fun salvarMatricula(matricula: String) = runBlocking {
-        dataStoreRepository.putString(DataStoreChaves.MATRICULA_MOTORISTA, matricula)
+        dataStoreRepository.putString(DataStoreChaves.MATRICULA_COLABORADOR, matricula)
     }
 
 }

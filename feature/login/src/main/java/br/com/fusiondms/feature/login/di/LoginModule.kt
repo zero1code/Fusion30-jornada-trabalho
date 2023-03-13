@@ -1,7 +1,7 @@
 package br.com.fusiondms.feature.login.di
 
 import br.com.fusiondms.core.network.repository.login.LoginRepository
-import br.com.fusiondms.core.network.repository.primeiroacesso.PrimeiroAcessoRepository
+import br.com.fusiondms.core.network.repository.login.primeiroacesso.PrimeiroAcessoRepository
 import br.com.fusiondms.feature.login.domain.login.LoginUseCaseImpl
 import br.com.fusiondms.feature.login.domain.login.LoginUsecase
 import br.com.fusiondms.feature.login.domain.primeiroacessousecase.PrimeiroAcessoUseCase

@@ -1,7 +1,7 @@
 package br.com.fusiondms.feature.login.domain.primeiroacessousecase
 
 import br.com.fusiondms.core.model.jornadatrabalho.Colaborador
-import br.com.fusiondms.core.network.repository.primeiroacesso.PrimeiroAcessoRepository
+import br.com.fusiondms.core.network.repository.login.primeiroacesso.PrimeiroAcessoRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

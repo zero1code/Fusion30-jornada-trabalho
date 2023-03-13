@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import br.com.fusiondms.core.common.R
 import br.com.fusiondms.core.common.converterDataParaDiaMesAnoHoraMinuto
 import br.com.fusiondms.core.model.jornadatrabalho.ReciboRegistroPonto
 import br.com.fusiondms.feature.jornadatrabalho.databinding.ItemJornadaReciboBinding
@@ -28,10 +29,17 @@ class RecibosAdapter() :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(reciboRegistroPonto: ReciboRegistroPonto) {
+            val context = binding.root.context
             with(binding) {
                 tvData.text = converterDataParaDiaMesAnoHoraMinuto(reciboRegistroPonto.dataRegistro)
                 tvNome.text = reciboRegistroPonto.nome
-//                tvStatus.text = ""
+                if (reciboRegistroPonto.registroEfetuado) {
+                    tvStatus.text = "SINCRONIZADA"
+                    tvStatus.setTextColor(context.getColor(R.color.brand_green_success))
+                } else {
+                    tvStatus.text = "APROVAÇÃO PENDENTE"
+                    tvStatus.setTextColor(context.getColor(R.color.brand_selective_yellow))
+                }
 //                tvEmpresa.text = ""
             }
         }

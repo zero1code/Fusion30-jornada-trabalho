@@ -6,7 +6,6 @@ import br.com.fusiondms.core.database.model.jornadatrabalho.ColaboradorEntity
 import br.com.fusiondms.core.database.model.jornadatrabalho.ReciboRegistroPontoEntity
 import br.com.fusiondms.core.database.model.jornadatrabalho.RegistroPontoEntity
 import br.com.fusiondms.core.model.exceptions.ErrorGetColaborador
-import br.com.fusiondms.core.model.exceptions.ErrorJornadaTrabalho
 import br.com.fusiondms.core.model.exceptions.ErrorSalvarRegistroPonto
 import br.com.fusiondms.core.model.jornadatrabalho.Colaborador
 import br.com.fusiondms.core.model.jornadatrabalho.ReciboRegistroPonto
@@ -37,7 +36,6 @@ class JornadaTrabalhoRepositoryImpl @Inject constructor(
                 emit(result)
             } catch (e: Exception) {
                 e.printStackTrace()
-                throw ErrorJornadaTrabalho(e.message)
             }
         }.flowOn(dispatcher)
     }
@@ -64,7 +62,6 @@ class JornadaTrabalhoRepositoryImpl @Inject constructor(
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
-                throw ErrorJornadaTrabalho(e.message)
             }
         }.flowOn(dispatcher)
     }

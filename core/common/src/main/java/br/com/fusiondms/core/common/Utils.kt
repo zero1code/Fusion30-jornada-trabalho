@@ -1,6 +1,10 @@
 package br.com.fusiondms.core.common
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 import android.util.TypedValue
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -9,6 +13,26 @@ import androidx.annotation.ColorInt
 import androidx.annotation.DimenRes
 import java.text.SimpleDateFormat
 import java.util.*
+
+@SuppressLint("MissingPermission")
+fun Context.isNetworkDisponivel(): Boolean {
+    val connectivityManager = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)?.let {
+           return when {
+               it.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+               it.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+               it.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> true
+               else -> false
+           }
+        }
+    } else {
+        connectivityManager.activeNetworkInfo?.let {
+            return it.isConnected
+        }
+    }
+    return false
+}
 
 fun Context.getActionBarSize(): Int {
     val tv = TypedValue()

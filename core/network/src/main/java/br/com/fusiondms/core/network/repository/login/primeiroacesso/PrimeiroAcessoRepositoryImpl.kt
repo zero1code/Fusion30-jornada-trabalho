@@ -1,4 +1,4 @@
-package br.com.fusiondms.core.network.repository.primeiroacesso
+package br.com.fusiondms.core.network.repository.login.primeiroacesso
 
 import android.content.Context
 import br.com.fusiondms.core.model.exceptions.ErrorApiCadastroColaborador

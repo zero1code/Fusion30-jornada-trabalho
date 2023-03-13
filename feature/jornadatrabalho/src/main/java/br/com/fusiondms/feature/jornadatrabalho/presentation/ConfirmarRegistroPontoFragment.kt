@@ -17,13 +17,16 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.work.*
 import br.com.fusiondms.core.common.R
 import br.com.fusiondms.core.common.bottomdialog.Dialog
 import br.com.fusiondms.core.common.converterDataParaDiaMesAnoHoraMinuto
 import br.com.fusiondms.core.common.converterDataParaHorasMinutos
 import br.com.fusiondms.core.common.progressdialog.showProgressBar
+import br.com.fusiondms.core.datastore.repository.DataStoreChaves
 import br.com.fusiondms.core.model.jornadatrabalho.Colaborador
 import br.com.fusiondms.core.model.jornadatrabalho.RegistroPonto
+import br.com.fusiondms.core.services.envioregistroponto.EnviarRegistroPontoWork
 import br.com.fusiondms.core.services.location.ForegroundLocationService
 import br.com.fusiondms.feature.facedetection.presentation.utils.getSavedFacePhoto
 import br.com.fusiondms.feature.jornadatrabalho.databinding.FragmentConfirmarRegistroPontoBinding
@@ -32,6 +35,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.io.FileNotFoundException
 import java.util.*
+import java.util.concurrent.TimeUnit
 import kotlin.concurrent.timerTask
 
 @AndroidEntryPoint
@@ -107,7 +111,7 @@ class ConfirmarRegistroPontoFragment : Fragment() {
     private fun bindListeners() {
         timerAtualizaData.scheduleAtFixedRate(timerTask() {
             jornadaViewModel.atualizarData()
-        }, 1 * 1000, 5 * 1000)
+        }, TimeUnit.SECONDS.toMillis(1), TimeUnit.SECONDS.toMillis(5))
 
         binding.btnRegistrarPonto.setOnClickListener {
             progressDialog = requireActivity().showProgressBar(getString(br.com.fusiondms.core.common.R.string.label_aguarde_momento))
@@ -129,7 +133,7 @@ class ConfirmarRegistroPontoFragment : Fragment() {
         } else {
             timerRegistroPonto.schedule(timerTask() {
                 registrarPonto()
-            }, 3 * 1000)
+            }, TimeUnit.SECONDS.toMillis(2))
         }
     }
 
@@ -141,9 +145,14 @@ class ConfirmarRegistroPontoFragment : Fragment() {
                 tvData.text = converterDataParaDiaMesAnoHoraMinuto(registroPonto.dataRegistro)
                 timerSucesso.schedule(timerTask() {
                     requireActivity().runOnUiThread {
-                        findNavController().navigateUp()
+                        try {
+                            findNavController().navigateUp()
+                        } catch (ise: IllegalStateException) {
+                            ise.printStackTrace()
+                        }
                     }
-                }, 10 * 1000)
+                }, TimeUnit.SECONDS.toMillis(10))
+                registrarWorkManager()
             }
         }
     }
@@ -180,6 +189,28 @@ class ConfirmarRegistroPontoFragment : Fragment() {
         }
     }
 
+    private fun registrarWorkManager() {
+        val inputData = Data.Builder()
+            .putLong(DataStoreChaves.MATRICULA_COLABORADOR, colaborador.matricula)
+            .build()
+
+        val constraints = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.CONNECTED)
+            .setRequiresBatteryNotLow(false)
+            .build()
+
+        val workRequest = PeriodicWorkRequestBuilder<EnviarRegistroPontoWork>(30, TimeUnit.SECONDS)
+            .setInputData(inputData)
+            .setConstraints(constraints)
+            .build()
+
+        WorkManager.getInstance(requireContext()).enqueueUniquePeriodicWork(
+            EnviarRegistroPontoWork.WORK_NAME,
+            ExistingPeriodicWorkPolicy.REPLACE,
+            workRequest
+        )
+    }
+
     private inner class LocationBroadcastReceiver : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
             val location = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -188,9 +219,9 @@ class ConfirmarRegistroPontoFragment : Fragment() {
                 intent.getParcelableExtra(ForegroundLocationService.EXTRA_LOCATION)
             }
 
-            location?.let {
-                currentLatitude = it.latitude.toString()
-                currentLongitude = it.longitude.toString()
+            location?.run {
+                currentLatitude = latitude.toString()
+                currentLongitude = longitude.toString()
             }
         }
     }
@@ -198,7 +229,7 @@ class ConfirmarRegistroPontoFragment : Fragment() {
     override fun onResume() {
         super.onResume()
 
-        val intentFilter = IntentFilter(ForegroundLocationService.ACTION_FOREGROUND_ONLY_LOCATION_BROADCAST)
+        val intentFilter = IntentFilter(ForegroundLocationService.ACTION_FOREGROUND_LOCATION_BROADCAST)
         requireActivity().registerReceiver(locationBroadcastReceiver, intentFilter)
     }
 

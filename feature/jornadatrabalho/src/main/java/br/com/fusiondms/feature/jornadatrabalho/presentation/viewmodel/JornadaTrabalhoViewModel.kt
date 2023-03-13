@@ -136,6 +136,6 @@ class JornadaTrabalhoViewModel @Inject constructor(
         dataStoreRepository.getBoolean(DataStoreChaves.KEY_FOREGROUND_ATIVADO)
     }
     private fun getMatricula(): String? = runBlocking {
-        dataStoreRepository.getString(DataStoreChaves.MATRICULA_MOTORISTA)
+        dataStoreRepository.getString(DataStoreChaves.MATRICULA_COLABORADOR)
     }
 }

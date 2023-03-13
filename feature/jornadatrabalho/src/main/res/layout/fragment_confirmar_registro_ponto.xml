@@ -137,7 +137,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:textColor="@color/brand_selective_yellow"
-                android:text="Status - AGUARDANDO" />
+                android:text="Status - APROVAÇÃO PENDENTE" />
 
             <TextView
                 android:id="@+id/tv_empresa"
