@@ -105,16 +105,13 @@ class RegistrarPontoFragment : Fragment() {
         ActivityResultContracts.RequestMultiplePermissions()
     ) { permission ->
         when {
-            permission.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) -> {
-                //Localização precisa aceita
+            permission.getOrDefault(Manifest.permission.ACCESS_BACKGROUND_LOCATION, false) -> {
+                //Localização background aceita
                 permissionRequestDialog?.dismiss()
                 foregroundLocationService?.subscribeToLocationUpdates()
             }
-            permission.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
-                //Localização aproximada acieta
-            }
             else -> {
-                //Permissão de localização negada
+                //Localização background negada
                 permissionBackgroundRequestDialog()
             }
         }

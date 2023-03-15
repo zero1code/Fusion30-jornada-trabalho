@@ -3,7 +3,7 @@ package br.com.fusiondms.jornadatrabalho
 import android.app.Application
 import androidx.work.Configuration
 import androidx.work.WorkManager
-import br.com.fusiondms.core.factory.WorkerFactory
+import br.com.fusiondms.core.services.factory.WorkerFactory
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 

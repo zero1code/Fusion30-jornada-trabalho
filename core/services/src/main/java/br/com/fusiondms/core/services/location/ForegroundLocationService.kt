@@ -232,7 +232,7 @@ class ForegroundLocationService : Service() {
 
         val notificationCompatBuilder =
             NotificationCompat.Builder(applicationContext, NOTIFICATION_CHANNEL_ID)
-        val bitmap = BitmapFactory.decodeResource(resources, br.com.fusiondms.core.common.R.drawable.ic_notificacao_app)
+        val bitmap = BitmapFactory.decodeResource(resources, br.com.fusiondms.core.common.R.drawable.ic_logo)
         return notificationCompatBuilder
 //            .setStyle(bigTextStyle)
             .setContentTitle(titleText)

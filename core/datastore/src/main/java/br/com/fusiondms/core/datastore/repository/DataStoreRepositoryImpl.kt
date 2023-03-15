@@ -100,28 +100,4 @@ class DataStoreRepositoryImpl @Inject constructor(
             null
         }
     }
-
-    override suspend fun getLatitude(chave: String): String? {
-        return try {
-            val preferencesKey = stringPreferencesKey(chave)
-            context.dataStore.data.map { preferences ->
-                preferences[preferencesKey]
-            }.first()
-        } catch (e: Exception) {
-            e.printStackTrace()
-            null
-        }
-    }
-
-    override suspend fun getCurrentLongitude(chave: String): String? {
-        return try {
-            val preferencesKey = stringPreferencesKey(chave)
-            context.dataStore.data.map { preferences ->
-                preferences[preferencesKey]
-            }.first()
-        } catch (e: Exception) {
-            e.printStackTrace()
-            null
-        }
-    }
 }

@@ -1,4 +1,4 @@
-package br.com.fusiondms.core.factory
+package br.com.fusiondms.core.services.factory
 
 import android.content.Context
 import androidx.work.ListenableWorker

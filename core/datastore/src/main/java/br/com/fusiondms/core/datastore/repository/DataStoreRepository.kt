@@ -8,6 +8,4 @@ interface DataStoreRepository {
     suspend fun getInt(chave: String): Int?
     suspend fun getBoolean(chave: String): Boolean?
     suspend fun getCurrentLocation(chave: String) : String?
-    suspend fun getLatitude(chave: String): String?
-    suspend fun getCurrentLongitude(chave: String): String?
 }
