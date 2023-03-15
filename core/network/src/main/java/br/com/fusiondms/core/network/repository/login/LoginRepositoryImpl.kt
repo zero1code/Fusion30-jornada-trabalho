@@ -2,6 +2,7 @@ package br.com.fusiondms.core.network.repository.login
 
 import android.content.Context
 import br.com.fusiondms.core.database.AppDatabase
+import br.com.fusiondms.core.database.dao.LoginDao
 import br.com.fusiondms.core.model.exceptions.ErrorApiLogin
 import br.com.fusiondms.core.model.exceptions.ErrorLogin
 import br.com.fusiondms.core.model.exceptions.ErrorSalvarColaboradorLocalLogin
@@ -17,7 +18,7 @@ import javax.inject.Inject
 
 class LoginRepositoryImpl @Inject constructor(
     private val fusionApi: FusionApi,
-    private val appDatabase: AppDatabase,
+    private val loginDao: LoginDao,
     private val context: Context,
     private val dispatcher: CoroutineDispatcher
 ) : LoginRepository {
@@ -28,7 +29,7 @@ class LoginRepositoryImpl @Inject constructor(
                 val response = fusionApi.fazerLogin(dto)
                 if (response.isSuccessful) {
                     val result = response.body()?.let { colaborador ->
-                        appDatabase.getLoginDao().inserirColaborador(ColaboradorDto().mapDtoToEntity(colaborador))
+                        loginDao.inserirColaborador(ColaboradorDto().mapDtoToEntity(colaborador))
                     } ?: 0
                     if (result == dto.matricula) {
                         emit(response.code())

@@ -3,6 +3,7 @@ package br.com.fusiondms.core.network.di
 import android.content.Context
 import br.com.fusiondms.core.database.AppDatabase
 import br.com.fusiondms.core.database.dao.ColaboradorDao
+import br.com.fusiondms.core.database.dao.LoginDao
 import br.com.fusiondms.core.network.api.FusionApi
 import br.com.fusiondms.core.network.repository.jornadatrabalho.JornadaTrabalhoRepository
 import br.com.fusiondms.core.network.repository.jornadatrabalho.JornadaTrabalhoRepositoryImpl
@@ -40,7 +41,7 @@ object RepositoryModule {
     @Provides
     fun provideLoginRepository(
         fusionApi: FusionApi,
-        appDatabase: AppDatabase,
+        loginDao: LoginDao,
         @ApplicationContext context: Context
-    ) : LoginRepository = LoginRepositoryImpl(fusionApi, appDatabase, context, Dispatchers.IO)
+    ) : LoginRepository = LoginRepositoryImpl(fusionApi, loginDao, context, Dispatchers.IO)
 }
